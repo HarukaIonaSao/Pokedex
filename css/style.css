@@ -75,3 +75,11 @@ body {
     background-color: #005f75;
 }
 
+#pokemonImage{
+    visibility: hidden;
+    min-height: 30px;
+    width: 150px;
+}
+
+
+
