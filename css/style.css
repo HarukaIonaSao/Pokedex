@@ -1,85 +1,93 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f2f2f2;
     display: flex;
+    background: linear-gradient(45deg, #e60c0c, #8f0603, #c4261b, #ba2103, #b30303);
+    background-size: 400% 400%;
+    font-family: var(--font-base);
     justify-content: center;
     align-items: center;
     height: 100vh;
+    animation: degrade 15s ease infinite ;
 }
 
 .pokedex-card {
-    background-color: #ff3b3b;
-    border-radius: 15px;
-    width: 300px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px; 
+    width: 18.75em;
+    box-shadow: 5px 5px 24px #f7a889f5; 
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: height 0.3s ease-in-out;
+    min-height: 300px;
 }
 
 .pokedex-screen {
-    background-color: #f4f4f4;
-    border: 5px solid #333;
-    border-radius: 10px;
+    background: linear-gradient(-45deg, #C62828, #E53935, #c4261b, #ca2403, #b30303);
+    border-radius: 20px;
     width: 100%;
-    padding: 10px;
+    padding: 0.625em; 
     text-align: center;
 }
 
 .pokedex-screen h1 {
-    font-size: 24px;
-    margin: 10px 0;
+    visibility: hidden;
+    font-size: 1.5em; 
+    margin: 0.625em 0; 
+    text-transform:capitalize;
+    color: var(--color-text);
 }
 
 .pokedex-screen img {
-    width: 150px;
-    height: 150px;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 2px solid #333;
+    width: 9.375em; 
+    height: 9.375em; 
+    background-color: var(--color-image-background);
+    border-radius: 0.625em; 
+    border: 0.125em solid var(--color-border);
 }
 
 .pokedex-screen p {
-    font-size: 18px;
-    margin-top: 10px;
+    visibility: hidden;
+    font-size: 1.125em; 
+    margin-top: 0.625em;
+    color: var(--color-text);
 }
 
 .pokedex-buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 1.25em; /* 20px */
+}
+
+#initialMessage{
+   font-size: 45px;
 }
 
 #pokemonId {
-    width: 80px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    margin-bottom: 10px;
+    width: 5em; 
+    padding: 0.3125em; 
+    border-radius: 0.3125em; 
+    border: 0.0625em solid var(--color-border); 
+    margin-bottom: 0.625em; 
 }
 
 #fetchPokemon {
-    background-color: #008cba;
+    background-color: var(--color-button-background);
     color: white;
-    padding: 10px 20px;
+    padding: 0.625em 1.25em; /* 10px 20px */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; 
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1em; /* 16px */
 }
 
 #fetchPokemon:hover {
-    background-color: #005f75;
+    background-color: var(--color-button-hover);
 }
 
-#pokemonImage{
+#pokemonImage {
     visibility: hidden;
-    min-height: 30px;
-    width: 150px;
+    min-height: 1.875em; /* 30px */
+    width: 9.375em; /* 150px */
 }
-
-
 

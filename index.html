@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/assets/img/gif.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/root.css">
+    <link rel="stylesheet" href="/css/reset.css">
+
     <title>Pokedex</title>
 </head>
 <body>
     
     <div class="pokedex-card">
-        <div class="pokedex-screen">
-            <h1 id="pokemonName">Nome</h1>
-            <img id="pokemonImage" src="" alt="Imagem do Pokémon" >
-            <p id="pokemonType">Tipo</p>
-            <p id="pokemonGeneration">Geração</p> 
-            <p id="pokemonRegion">Região</p> 
+        <div class="pokedex-screen" style="visibility: visible;">
+            <p id="initialMessage" style="visibility: visible;">Por favor, digite o nome ou o id:</p>
+            <h1 id="pokemonName" class="hidden">Name</h1>
+            <img id="pokemonImage" class="hidden" src="" alt="Imagem do Pokémon" >
+            <p id="pokemonType" class="hidden" >Type</p>
+            <p id="pokemonGeneration" class="hidden" >Generation</p> 
+            <p id="pokemonRegion" class="hidden">Region</p> 
 
         <div class="pokedex-buttons">
             <input type="text" id="pokemonId" placeholder="ID ou Nome do Pokémon">
-            <button id="fetchPokemon">Buscar Pokémon</button>
+            <button id="fetchPokemon">Search Pokémon</button>
         </div>
     </div>   
 

@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+:root {
+    /* Fontes */
+    --font-base: 'VT323', sans-serif;
+
+    --color-card-background: #804141; /* Cor de fundo do card */
+    --color-border: #9c9696; /* Cor da borda */
+    --color-button-background: #15c92a; /* Cor de fundo do botão */
+    --color-button-hover: #59e084; /* Cor de fundo do botão ao passar o mouse */
+    --color-text: #f2eaea; /* Cor do texto */
+    --color-image-background: #f7dfdf; /* Cor de fundo da imagem */
+}
+
+@keyframes degrade {
+    0%{
+      background-position: 0% 50%
+    }
+    50%{
+      background-position:100% 50%
+    }
+    100%{
+      background-position:0% 50%   
+    }
+ }

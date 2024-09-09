@@ -7,6 +7,7 @@ const pokemonGeneration = document.getElementById('pokemonGeneration');
 const pokemonIdInput = document.getElementById('pokemonId');
 const fetchPokemonButton = document.getElementById('fetchPokemon');
 
+
 // Função para buscar Pokémon
 function fetchPokemon(pokemonIdOrName) {
     const pokemonURL = `https://pokeapi.co/api/v2/pokemon/${pokemonIdOrName}`;
@@ -16,12 +17,20 @@ function fetchPokemon(pokemonIdOrName) {
     fetch(pokemonURL)
         .then(response => response.json())
         .then(data => {
-            pokemonName.textContent = `Nome: ${data.name}`;
-            pokemonImage.src = data.sprites.front_default; // Atualiza com a imagem do Pokémon
-            pokemonType.textContent = `Tipo: ${data.types.map(type => type.type.name).join(', ')}`;
 
-            // Retira o  hidden da imagem inicial
+            pokemonName.textContent = `Name: ${data.name}`;
+            pokemonImage.src = data.sprites.front_default; 
+            pokemonType.textContent = `Type: ${data.types.map(type => type.type.name).join(', ')}`;
+
+            document.getElementById('initialMessage').style.visibility = 'visible';
+            
+            // Retira o  hidden 
+            initialMessage.remove();
             pokemonImage.style.visibility = 'visible';
+            pokemonName.style.visibility ='visible';
+            pokemonType.style.visibility ='visible';
+            pokemonRegion.style.visibility = 'visible';
+            pokemonGeneration.style.visibility = 'visible';
             
             // Faz a segunda requisição para obter a espécie e dados adicionais
             return fetch(speciesURL);
@@ -29,7 +38,7 @@ function fetchPokemon(pokemonIdOrName) {
         .then(response => response.json())
         .then(speciesData => {
             const generation = speciesData.generation.name;
-            pokemonGeneration.textContent = `Geração: ${generation}`;
+            pokemonGeneration.textContent = `Generation: ${generation}`;
 
             const generationURL = speciesData.generation.url;
             return fetch(generationURL);
@@ -37,7 +46,7 @@ function fetchPokemon(pokemonIdOrName) {
         .then(response => response.json())
         .then(generationData => {
             const region = generationData.main_region.name;
-            pokemonRegion.textContent = `Região: ${region}`;
+            pokemonRegion.textContent = `Region: ${region}`;
         })
         .catch(error => {
             pokemonName.textContent = 'Pokémon não encontrado!';
@@ -93,7 +102,12 @@ function fetchApproximatePokemon() {
         alert('Por favor, insira um nome de Pokémon.');
         return;
     }
+    const isNumeric = !isNaN(userInput);
     
+    if (isNumeric) {
+        // Se for número, busca diretamente pelo ID
+        fetchPokemon(userInput);
+    } else {    
     // Buscar a lista de todos os Pokémon
     fetch('https://pokeapi.co/api/v2/pokemon?limit=10000') // Limite alto para garantir todos
         .then(response => response.json())
@@ -122,7 +136,7 @@ function fetchApproximatePokemon() {
         .catch(error => {
             alert('Erro ao buscar a lista de Pokémon.');
         });
-}
+}}
 
 // Adiciona o evento de clique no botão
 fetchPokemonButton.addEventListener('click', fetchApproximatePokemon);
